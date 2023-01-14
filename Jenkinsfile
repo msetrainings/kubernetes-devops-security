@@ -25,7 +25,7 @@ pipeline {
 
     stage('Docker Build and Push') {
       steps {
-        withDockerRegistry([credentialsId: "docker-hub", url: ""]) {
+        withDockerRegistry([credentialsId: "CREDS-DOCKER-HUB", url: ""]) {
           sh 'printenv'
           sh 'docker build -t moezthemaster/numeric-app:""$GIT_COMMIT"" .'
           sh 'docker push moezthemaster/numeric-app:""$GIT_COMMIT""'
